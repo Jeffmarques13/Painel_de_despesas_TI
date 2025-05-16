@@ -20,8 +20,9 @@ if uploaded_file:
         for col in ['Unnamed: 0', 'Unnamed: 6', "Unnamed: 19", 'STATUS', 'CONTRATO']:
             if col in df.columns:
                 df = df.drop(columns=[col])
-         # Excluir colunas STATUS e CONTRATO sem mexer no restante do código
-        for col in ['STATUS', 'Contrato']:
+        
+        # Excluir colunas STATUS, CONTRATO e Vence sem mexer no restante do código
+        for col in ['STATUS', 'Contrato', 'Vence']:
             if col in df.columns:
                 df = df.drop(columns=[col])
 
@@ -35,7 +36,7 @@ if uploaded_file:
         # Renomear colunas dos meses
         nomes_meses = ['jan/25', 'fev/25', 'mar/25', 'abr/25', 'mai/25', 'jun/25',
                        'jul/25', 'ago/25', 'set/25', 'out/25', 'nov/25', 'dez/25', 'Total']
-        col_inicio = 3
+        col_inicio = 2
         for i, nome_mes in enumerate(nomes_meses):
             pos = col_inicio + i
             if pos < len(df.columns):
